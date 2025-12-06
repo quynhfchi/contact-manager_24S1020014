@@ -58,6 +58,16 @@ if __name__ == "__main__":
     main()
 
 
+ feature/view-contacts
+def view_contacts():
+    if len(phonebook) == 0:
+        print("Danh bạ đang trống!")
+        return
+
+    print("\n--- DANH SÁCH LIÊN HỆ ---")
+    for i, contact in enumerate(phonebook, start=1):
+        print(f"{i}. {contact['name']} - {contact['phone']}")
+
 def search_contact():
     name = input("Nhập tên cần tìm: ")
 
@@ -70,3 +80,4 @@ def search_contact():
     
     if not found:
         print("❌ Không tìm thấy liên hệ!")
+ main
