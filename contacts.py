@@ -56,3 +56,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def search_contact():
+    name = input("Nhập tên cần tìm: ")
+
+    found = False
+    for contact in phonebook:
+        if contact["name"].lower() == name.lower():
+            print(f"📌 Số điện thoại của {name}: {contact['phone']}")
+            found = True
+            break
+    
+    if not found:
+        print("❌ Không tìm thấy liên hệ!")
