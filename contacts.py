@@ -2,19 +2,35 @@
 phonebook = []
 
 def add_contact():
-    # Nhập tên, sđt -> append vào phonebook
-    print("Đã thêm liên hệ (chức năng sẽ triển khai sau).")
+    name = input("Nhập tên liên hệ: ")
+    phone = input("Nhập số điện thoại: ")
+
+    contact = {"name": name, "phone": phone}
+    phonebook.append(contact)
+
+    print("✔ Đã thêm liên hệ thành công!")
 
 def view_contacts():
-    # Duyệt list phonebook và in ra
-    # Ví dụ: 1. Nam - 0909xxx
-    pass
+    if len(phonebook) == 0:
+        print("⚠ Danh bạ đang trống!")
+        return
+    
+    print("\n--- DANH SÁCH LIÊN HỆ ---")
+    for i, c in enumerate(phonebook, start=1):
+        print(f"{i}. {c['name']} - {c['phone']}")
 
 def search_contact():
-    # Nhập tên cần tìm
-    # Duyệt list, so sánh name, in ra phone nếu thấy
-    pass
+    name_search = input("Nhập tên cần tìm: ")
+    found = False
 
+    for c in phonebook:
+        if c["name"].lower() == name_search.lower():
+            print(f"📌 Số điện thoại của {name_search}: {c['phone']}")
+            found = True
+            break
+
+    if not found:
+        print("❌ Không tìm thấy liên hệ!")
 
 def main():
     while True:
@@ -36,17 +52,7 @@ def main():
             print("Tạm biệt!")
             break
         else:
-            print("Lựa chọn không hợp lệ.")
-
+            print("⚠ Lựa chọn không hợp lệ, vui lòng nhập lại!")
 
 if __name__ == "__main__":
     main()
-
-def add_contact():
-    name = input("Nhập tên liên hệ: ")
-    phone = input("Nhập số điện thoại: ")
-
-    contact = {"name": name, "phone": phone}
-    phonebook.append(contact)
-
-    print("✔ Đã thêm liên hệ thành công!")
